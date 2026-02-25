@@ -33,19 +33,31 @@ class Conversation implements ConversationRequirements {
 
   say("Hi I'm Landree Bot, what's up?");
 
-    int counter = 0;
-    while (counter < rounds-1) {
+  int counter = 0;
+
+  while (counter < rounds) {
+
       String response = hear();
-      if (response.length() < 11) {
-        say("Is that all you got?");
-      } else if (response.length() > 50) {
-        say("Wow that is a lot going on, is that all?");
+
+      // If it's NOT the last round
+      if (counter < rounds - 1) {
+
+          if (response.length() < 11) {
+              say("Is that all you got?");
+          } 
+          else if (response.length() > 50) {
+              say("Wow that is a lot going on, is that all?");
+          } 
+          else {
+              say("Wanna tell me more?");
+          }
+
       } else {
-        say("Wanna tell me more?");
+          // Last round
+          say("mmhmm");
       }
-  say("mmhmm")
+
       counter++;
-    }
   }
 
   public void printTranscript() {
