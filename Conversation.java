@@ -32,12 +32,11 @@ class Conversation implements ConversationRequirements {
     input.nextLine();
 
   say("Hi I'm Landree Bot, what's up?");
-  String response = hear();
-  
+
     int counter = 0;
     while (counter < rounds) {
-
-      if (response.length() <= 10) {
+      String response = hear();
+      if (response.length() < 11) {
         say("Is that all you got?");
       } else if (response.length() > 50) {
         say("Wow that is a lot going on, is that all?");
