@@ -34,7 +34,7 @@ class Conversation implements ConversationRequirements {
   say("Hi I'm Landree Bot, what's up?");
 
     int counter = 0;
-    while (counter < rounds) {
+    while (counter < rounds-1) {
       String response = hear();
       if (response.length() < 11) {
         say("Is that all you got?");
@@ -43,7 +43,7 @@ class Conversation implements ConversationRequirements {
       } else {
         say("Wanna tell me more?");
       }
-
+  say("mmhmm")
       counter++;
     }
   }
