@@ -24,14 +24,20 @@ class Conversation implements ConversationRequirements {
 
     String transcript = "";
 
-    for (int i = 0; i < rounds; i++) {
-      String line1 = input.nextLine();
-      System.out.println();
-      transcript += line1 + "\n";
+    int counter = 0;
 
-      String line2 = input.nextLine();
-      System.out.println();
-      transcript += line2 + "\n";
+    while (counter < rounds) {
+
+        String line1 = input.nextLine();
+        System.out.println();
+        transcript += line1 + "\n";
+
+        String line2 = input.nextLine();
+        System.out.println();
+        transcript += line2 + "\n";
+
+        counter = counter + 1;
+    }
     }
   System.out.println("\nTRANSCRIPT:");
   System.out.print(transcript);
