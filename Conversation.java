@@ -58,6 +58,7 @@ class Conversation implements ConversationRequirements {
       }
 
       counter++;
+    }
   }
 
   public void printTranscript() {
