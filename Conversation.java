@@ -32,15 +32,17 @@ class Conversation implements ConversationRequirements {
       String line2 = input.nextLine();
       System.out.println();
       transcript += line2 + "\n";
+    }
+  System.out.println("\nTRANSCRIPT:");
+  System.out.print(transcript);
+  input.close();
   }
 
   /**
    * Prints transcript of conversation
    */
 
-  System.out.println("\nTRANSCRIPT:");
-  System.out.print(transcript);
-  input.close();
+
 
   public void printTranscript() {
   }
