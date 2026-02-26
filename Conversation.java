@@ -27,55 +27,55 @@ class Conversation implements ConversationRequirements {
   }
 
   public void chat() {
-    System.out.print("How many rounds? ");
-    int rounds = input.nextInt();
-    input.nextLine();
+      System.out.print("How many rounds? ");
+      int rounds = input.nextInt();
+      input.nextLine();
 
-    say("Hi I'm Landree Bot, what's up?");
+      say("Hi I'm Landree Bot, what's up?");
 
-    int counter = 0;
+      int counter = 0;
 
-    while (counter < rounds) {
+      while (counter < rounds) {
 
-        String response = hear();  // stored in transcript
-        String[] words = response.split(" ");
-        StringBuilder reply = new StringBuilder();
+          String response = hear();   // stored in transcript
+          String[] words = response.split(" ");
+          StringBuilder reply = new StringBuilder();
 
-        for (String word : words) {
+          for (String word : words) {
 
-            if (word.equals("I")) {
-                reply.append("you");
-            }
-            else if (word.equals("me")) {
-                reply.append("you");
-            }
-            else if (word.equals("my")) {
-                reply.append("your");
-            }
-            else if (word.equals("am")) {
-                reply.append("are");
-            }
-            else if (word.equals("are")) {
-                reply.append("am");
-            }
-            else if (word.equals("your")) {
-                reply.append("my");
-            }
-            else if (word.equals("you")) {
-                reply.append("I");
-            }
-            else {
-                reply.append(word);
-            }
+              if (word.equalsIgnoreCase("i")) {
+                  reply.append("you");
+              }
+              else if (word.equalsIgnoreCase("me")) {
+                  reply.append("you");
+              }
+              else if (word.equalsIgnoreCase("my")) {
+                  reply.append("your");
+              }
+              else if (word.equalsIgnoreCase("am")) {
+                  reply.append("are");
+              }
+              else if (word.equalsIgnoreCase("are")) {
+                  reply.append("am");
+              }
+              else if (word.equalsIgnoreCase("your")) {
+                  reply.append("my");
+              }
+              else if (word.equalsIgnoreCase("you")) {
+                  reply.append("I");
+              }
+              else {
+                  reply.append(word);
+              }
 
-            reply.append(" ");
-        }
+              reply.append(" ");
+          }
 
-        say(reply.toString().trim() + "?");
+          say(reply.toString().trim() + "?");
 
-        counter++;
-    }
-}
+          counter++;
+      }
+  }
 
 
 
