@@ -28,8 +28,7 @@ class Conversation implements ConversationRequirements {
 
 public void chat() {
     System.out.print("How many rounds? ");
-    int rounds = input.nextInt();
-    input.nextLine();
+    int rounds = Integer.parseInt(input.nextLine());
 
     say("Hi I'm Landree Bot, what's up?");
 
