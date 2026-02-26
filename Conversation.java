@@ -26,80 +26,85 @@ class Conversation implements ConversationRequirements {
     return s;
   }
 
-  public void chat() {
-      System.out.print("How many rounds? ");
-      int rounds = input.nextInt();
-      input.nextLine();
+public void chat() {
+    System.out.print("How many rounds? ");
+    int rounds = input.nextInt();
+    input.nextLine();
 
-      say("Hi I'm Landree Bot, what's up?");
+    say("Hi I'm Landree Bot, what's up?");
 
-      int counter = 0;
+    int counter = 0;
 
-      while (counter < rounds) {
+    while (counter < rounds) {
 
-          String response = hear();
-          String[] words = response.split(" ");
-          StringBuilder reply = new StringBuilder();
-          boolean reflectedSomething = false;
+        String response = hear();
 
-          for (String word : words) {
+        // ✅ Last round
+        if (counter == rounds - 1) {
+            say("Hmm");
+        } 
+        else {
 
-              if (word.equalsIgnoreCase("i")) {
-                  reply.append("you");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("me")) {
-                  reply.append("you");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("my")) {
-                  reply.append("your");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("am")) {
-                  reply.append("are");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("are")) {
-                  reply.append("am");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("your")) {
-                  reply.append("my");
-                  reflectedSomething = true;
-              }
-              else if (word.equalsIgnoreCase("you")) {
-                  reply.append("I");
-                  reflectedSomething = true;
-              }
-              else {
-                  reply.append(word);
-              }
+            String[] words = response.split(" ");
+            StringBuilder reply = new StringBuilder();
+            boolean reflectedSomething = false;
 
-              reply.append(" ");
-          }
+            for (String word : words) {
 
-          if (reflectedSomething) {
-              say(reply.toString().trim() + "?");
-          } 
-          else {
-              if (response.length() < 11) {
-                  say("Is that all you got?");
-              } 
-              else if (response.length() > 50) {
-                  say("Wow that is a lot going on, is that all?");
-              } 
-              else {
-                  say("Wanna tell me more?");
-              }
-          }
+                if (word.equalsIgnoreCase("i")) {
+                    reply.append("you");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("me")) {
+                    reply.append("you");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("my")) {
+                    reply.append("your");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("am")) {
+                    reply.append("are");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("are")) {
+                    reply.append("am");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("your")) {
+                    reply.append("my");
+                    reflectedSomething = true;
+                }
+                else if (word.equalsIgnoreCase("you")) {
+                    reply.append("I");
+                    reflectedSomething = true;
+                }
+                else {
+                    reply.append(word);
+                }
 
-          counter++;
-      }
-  }
+                reply.append(" ");
+            }
 
+            if (reflectedSomething) {
+                say(reply.toString().trim() + "?");
+            } 
+            else {
+                if (response.length() < 11) {
+                    say("Is that all you got?");
+                } 
+                else if (response.length() > 50) {
+                    say("Wow that is a lot going on, is that all?");
+                } 
+                else {
+                    say("Wanna tell me more?");
+                }
+            }
+        }
 
-
+        counter++;
+    }
+}
 
 
 
