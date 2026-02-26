@@ -39,7 +39,6 @@ public void chat() {
 
         String response = hear();
 
-        // Last round
         if (counter == rounds - 1) {
             say("Hmm");
         } 
@@ -51,42 +50,40 @@ public void chat() {
 
             for (String word : words) {
 
-                if (word.equalsIgnoreCase("I")) {
+                if (word.equalsIgnoreCase("i")) {
                     reply.append("you");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("I'm")) {
+                else if (word.equalsIgnoreCase("i'm")) {
                     reply.append("you're");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("Me")) {
+                else if (word.equalsIgnoreCase("me")) {
                     reply.append("you");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("My")) {
+                else if (word.equalsIgnoreCase("my")) {
                     reply.append("your");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("Am")) {
+                else if (word.equalsIgnoreCase("am")) {
                     reply.append("are");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("Are")) {
+                else if (word.equalsIgnoreCase("are")) {
                     reply.append("am");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("Your")) {
+                else if (word.equalsIgnoreCase("your")) {
                     reply.append("my");
                     pronounCount++;
                 }
-
-                else if (word.equalsIgnoreCase("You're")) {
+                else if (word.equalsIgnoreCase("you're")) {
                     reply.append("i'm");
                     pronounCount++;
                 }
-
-                else if (word.equalsIgnoreCase("You")) {
-                    reply.append("I");
+                else if (word.equalsIgnoreCase("you")) {
+                    reply.append("i");
                     pronounCount++;
                 }
                 else {
@@ -97,33 +94,31 @@ public void chat() {
             }
 
             if (pronounCount >= 1) {
-              String output = reply.toString().trim();
-              if (output.endsWith(".")) {
-                output = output.substring(0, output.length() - 1);
-              say(output + "?");
-}
-            } 
-      if (pronounCount >= 1) {
-          String output = reply.toString().trim();
-          if (output.endsWith(".") || output.endsWith("!") || output.endsWith("?")) {
-              output = output.substring(0, output.length() - 1);
-          }
-          say(output + "?");
-      } else {
-          if (response.length() < 11) {
-              say("Is that all you got?");
-          } else if (response.length() > 50) {
-              say("Wow that is a lot going on, is that all?");
-          } else {
-              say("Wanna tell me more?");
-          }
-      }
+                String output = reply.toString().trim();
+
+                if (output.endsWith(".") ||
+                    output.endsWith("!") ||
+                    output.endsWith("?")) {
+
+                    output = output.substring(0, output.length() - 1);
+                }
+
+                say(output + "?");
+            }
+            else if (response.length() < 11) {
+                say("Is that all you got?");
+            }
+            else if (response.length() > 50) {
+                say("Wow that is a lot going on, is that all?");
+            }
+            else {
+                say("Wanna tell me more?");
+            }
         }
 
         counter++;
     }
 }
-
 
 public void printTranscript() {
     System.out.println("\nTRANSCRIPT:");
