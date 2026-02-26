@@ -47,47 +47,47 @@ public void chat() {
 
             String[] words = response.split(" ");
             StringBuilder reply = new StringBuilder();
-            boolean reflectedSomething = false;
+            int pronounCount = 0;
 
             for (String word : words) {
 
                 if (word.equalsIgnoreCase("i")) {
                     reply.append("you");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 if (word.equalsIgnoreCase("i'm")) {
                     reply.append("you're");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else if (word.equalsIgnoreCase("me")) {
                     reply.append("you");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else if (word.equalsIgnoreCase("my")) {
                     reply.append("your");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else if (word.equalsIgnoreCase("am")) {
                     reply.append("are");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else if (word.equalsIgnoreCase("are")) {
                     reply.append("am");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else if (word.equalsIgnoreCase("your")) {
                     reply.append("my");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
 
                 else if (word.equalsIgnoreCase("you're")) {
                     reply.append("i'm");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
 
                 else if (word.equalsIgnoreCase("you")) {
                     reply.append("I");
-                    reflectedSomething = true;
+                    pronounCount++;
                 }
                 else {
                     reply.append(word);
@@ -96,7 +96,7 @@ public void chat() {
                 reply.append(" ");
             }
 
-            if (reflectedSomething) {
+            if (pronounCount == 1) {
                 say(reply.toString().trim() + "?");
             } 
             else {
