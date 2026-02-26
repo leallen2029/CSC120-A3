@@ -37,32 +37,40 @@ class Conversation implements ConversationRequirements {
 
       while (counter < rounds) {
 
-          String response = hear();   // stored in transcript
+          String response = hear();
           String[] words = response.split(" ");
           StringBuilder reply = new StringBuilder();
+          boolean reflectedSomething = false;
 
           for (String word : words) {
 
               if (word.equalsIgnoreCase("i")) {
                   reply.append("you");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("me")) {
                   reply.append("you");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("my")) {
                   reply.append("your");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("am")) {
                   reply.append("are");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("are")) {
                   reply.append("am");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("your")) {
                   reply.append("my");
+                  reflectedSomething = true;
               }
               else if (word.equalsIgnoreCase("you")) {
                   reply.append("I");
+                  reflectedSomething = true;
               }
               else {
                   reply.append(word);
@@ -71,14 +79,24 @@ class Conversation implements ConversationRequirements {
               reply.append(" ");
           }
 
-          say(reply.toString().trim() + "?");
+          if (reflectedSomething) {
+              say(reply.toString().trim() + "?");
+          } 
+          else {
+              if (response.length() < 11) {
+                  say("Is that all you got?");
+              } 
+              else if (response.length() > 50) {
+                  say("Wow that is a lot going on, is that all?");
+              } 
+              else {
+                  say("Wanna tell me more?");
+              }
+          }
 
           counter++;
       }
   }
-
-
-
 
 
 
