@@ -31,16 +31,85 @@ class Conversation implements ConversationRequirements {
     int rounds = input.nextInt();
     input.nextLine();
 
+    say("Hi I'm Landree Bot, what's up?");
+
+    int counter = 0;
+
+    while (counter < rounds) {
+
+        String response = hear();  // stored in transcript
+        String[] words = response.split(" ");
+        StringBuilder reply = new StringBuilder();
+
+        for (String word : words) {
+
+            if (word.equals("I")) {
+                reply.append("you");
+            }
+            else if (word.equals("me")) {
+                reply.append("you");
+            }
+            else if (word.equals("my")) {
+                reply.append("your");
+            }
+            else if (word.equals("am")) {
+                reply.append("are");
+            }
+            else if (word.equals("are")) {
+                reply.append("am");
+            }
+            else if (word.equals("your")) {
+                reply.append("my");
+            }
+            else if (word.equals("you")) {
+                reply.append("I");
+            }
+            else {
+                reply.append(word);
+            }
+
+            reply.append(" ");
+        }
+
+        say(reply.toString().trim() + "?");
+
+        counter++;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+    /* System.out.print("How many rounds? ");
+    int rounds = input.nextInt();
+    input.nextLine();
+
   say("Hi I'm Landree Bot, what's up?");
 
   int counter = 0;
 
-  while (counter < rounds) {
-
+  // If it's NOT the last round
+  while (counter < rounds - 1) {
       String response = hear();
+      String word1 = "I";
+      String word2 = "me";
+      String word3 = "am";
+      String word4 = "you";
+      String word5 = "my";
+      String word6 = "your";
+      String word7 = "our";
 
-      // If it's NOT the last round
-      if (counter < rounds - 1) {
+      if response.contains(word1){
+        System.out.println("Found the phrase: " + searchPhrase);
+
+      }
 
           if (response.length() < 11) {
               say("Is that all you got?");
@@ -55,12 +124,12 @@ class Conversation implements ConversationRequirements {
       } else {
           // Last round
           say("mmhmm");
-      }
+    
 
       counter++;
     }
   }
-
+*/
   public void printTranscript() {
     System.out.println("\nTRANSCRIPT:");
     for (String line : transcript) {
