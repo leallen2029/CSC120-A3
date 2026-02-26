@@ -116,7 +116,7 @@ public void chat() {
         }
 
         counter++;
-    }
+        }
 }
 
 public void printTranscript() {
@@ -124,7 +124,6 @@ public void printTranscript() {
     for (String line : transcript) {
         System.out.println(line);
     }
-    input.close();  
 }
 
   public String respond(String inputString) {
