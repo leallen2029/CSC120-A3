@@ -51,41 +51,41 @@ public void chat() {
 
             for (String word : words) {
 
-                if (word.equalsIgnoreCase("i")) {
+                if (word.equalsIgnoreCase("I")) {
                     reply.append("you");
                     pronounCount++;
                 }
-                if (word.equalsIgnoreCase("i'm")) {
+                else if (word.equalsIgnoreCase("I'm")) {
                     reply.append("you're");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("me")) {
+                else if (word.equalsIgnoreCase("Me")) {
                     reply.append("you");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("my")) {
+                else if (word.equalsIgnoreCase("My")) {
                     reply.append("your");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("am")) {
+                else if (word.equalsIgnoreCase("Am")) {
                     reply.append("are");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("are")) {
+                else if (word.equalsIgnoreCase("Are")) {
                     reply.append("am");
                     pronounCount++;
                 }
-                else if (word.equalsIgnoreCase("your")) {
+                else if (word.equalsIgnoreCase("Your")) {
                     reply.append("my");
                     pronounCount++;
                 }
 
-                else if (word.equalsIgnoreCase("you're")) {
+                else if (word.equalsIgnoreCase("You're")) {
                     reply.append("i'm");
                     pronounCount++;
                 }
 
-                else if (word.equalsIgnoreCase("you")) {
+                else if (word.equalsIgnoreCase("You")) {
                     reply.append("I");
                     pronounCount++;
                 }
@@ -97,7 +97,11 @@ public void chat() {
             }
 
             if (pronounCount == 1) {
-                say(reply.toString().trim() + "?");
+              String output = reply.toString().trim();
+              if (output.endsWith(".")) {
+                output = output.substring(0, output.length() - 1);
+              say(output + "?");
+}
             } 
             else {
                 if (response.length() < 11) {
