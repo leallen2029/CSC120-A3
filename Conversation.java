@@ -96,24 +96,28 @@ public void chat() {
                 reply.append(" ");
             }
 
-            if (pronounCount == 1) {
+            if (pronounCount >= 1) {
               String output = reply.toString().trim();
               if (output.endsWith(".")) {
                 output = output.substring(0, output.length() - 1);
               say(output + "?");
 }
             } 
-            else {
-                if (response.length() < 11) {
-                    say("Is that all you got?");
-                } 
-                else if (response.length() > 50) {
-                    say("Wow that is a lot going on, is that all?");
-                } 
-                else {
-                    say("Wanna tell me more?");
-                }
-            }
+      if (pronounCount >= 1) {
+          String output = reply.toString().trim();
+          if (output.endsWith(".") || output.endsWith("!") || output.endsWith("?")) {
+              output = output.substring(0, output.length() - 1);
+          }
+          say(output + "?");
+      } else {
+          if (response.length() < 11) {
+              say("Is that all you got?");
+          } else if (response.length() > 50) {
+              say("Wow that is a lot going on, is that all?");
+          } else {
+              say("Wanna tell me more?");
+          }
+      }
         }
 
         counter++;
