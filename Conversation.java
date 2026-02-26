@@ -39,7 +39,7 @@ public void chat() {
 
         String response = hear();
 
-        // ✅ Last round
+        // Last round
         if (counter == rounds - 1) {
             say("Hmm");
         } 
@@ -54,7 +54,7 @@ public void chat() {
                 if (word.equalsIgnoreCase("i")) {
                     reply.append("you");
                     reflectedSomething = true;
-                
+                }
                 if (word.equalsIgnoreCase("i'm")) {
                     reply.append("you're");
                     reflectedSomething = true;
@@ -117,59 +117,13 @@ public void chat() {
 }
 
 
-
-
-
-    /* System.out.print("How many rounds? ");
-    int rounds = input.nextInt();
-    input.nextLine();
-
-  say("Hi I'm Landree Bot, what's up?");
-
-  int counter = 0;
-
-  // If it's NOT the last round
-  while (counter < rounds - 1) {
-      String response = hear();
-      String word1 = "I";
-      String word2 = "me";
-      String word3 = "am";
-      String word4 = "you";
-      String word5 = "my";
-      String word6 = "your";
-      String word7 = "our";
-
-      if response.contains(word1){
-        System.out.println("Found the phrase: " + searchPhrase);
-
-      }
-
-          if (response.length() < 11) {
-              say("Is that all you got?");
-          } 
-          else if (response.length() > 50) {
-              say("Wow that is a lot going on, is that all?");
-          } 
-          else {
-              say("Wanna tell me more?");
-          }
-
-      } else {
-          // Last round
-          say("mmhmm");
-    
-
-      counter++;
-    }
-  }
-*/
-  public void printTranscript() {
+public void printTranscript() {
     System.out.println("\nTRANSCRIPT:");
     for (String line : transcript) {
-      System.out.println(line);
+        System.out.println(line);
     }
-    input.close();
-  }
+    input.close();  
+}
 
   public String respond(String inputString) {
     return ""; // you can ignore this for now if not needed
