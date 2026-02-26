@@ -78,12 +78,13 @@ public void chat() {
                 else if (word.equalsIgnoreCase("your")) {
                     reply.append("my");
                     reflectedSomething = true;
+                }
 
                 else if (word.equalsIgnoreCase("you're")) {
                     reply.append("i'm");
                     reflectedSomething = true;
-
                 }
+
                 else if (word.equalsIgnoreCase("you")) {
                     reply.append("I");
                     reflectedSomething = true;
